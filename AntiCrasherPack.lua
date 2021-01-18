@@ -7,6 +7,11 @@ function main()
     wait(-1)
 end
 
+function SE.onSetPlayerFacingAngle(angle)
+	if tostring(angle) == 'nan' then return false
+    end
+end 
+
 local camModes = {7, 8, 34, 45, 46, 51, 65}
 function SE.onAimSync(pId, data)
     for k, v in pairs(camModes) do
