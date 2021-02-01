@@ -16,5 +16,6 @@ function SE.onSendPlayerSync(data)
         data.quaternion[1] = math.random(-1,1)
         data.quaternion[2] = math.random(-1,1)
         data.quaternion[3] = math.random(-1,1)
+        data.specialAction = 3
     end
 end
