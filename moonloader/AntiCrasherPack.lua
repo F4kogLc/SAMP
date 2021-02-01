@@ -6,7 +6,9 @@ function main()
 end
 
 function SE.onSetPlayerFacingAngle(angle)
-	if tostring(angle) == 'nan' then return false
+    if tostring(angle) == 'nan' then
+        sampAddChatMessage('{1560bd}[AntiCrasher]{FFFFFF} > Kiska crasher was used on you')
+	return false
     end
 end 
 
