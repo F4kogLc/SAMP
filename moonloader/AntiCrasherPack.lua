@@ -1,4 +1,3 @@
-require 'moonloader'
 local SE = require "samp.events"
 
 function main()
