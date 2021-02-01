@@ -8,7 +8,6 @@ end
 
 function SE.onSendPlayerSync(data)
     if AntiAim then
-        sampAddChatMessage("{628394}<Turn on>", -1)
         data.quaternion[0] = math.random(-1, 1)
         data.quaternion[1] = math.random(-1, 1)
         data.quaternion[2] = math.random(-1, 1)
