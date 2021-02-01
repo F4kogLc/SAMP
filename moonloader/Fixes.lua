@@ -1,3 +1,9 @@
+local mem = require 'memory'
+
+function main()
+    wait(-1)
+end
+
 function patch() --fast loading
 	if mem.getuint8(0x748C2B) == 0xE8 then
 		mem.fill(0x748C2B, 0x90, 5, true)
@@ -23,17 +29,13 @@ function patch() --fast loading
 end
 patch()
 
-require('memory').setuint32((0x0052228C + 0x2), 0xB6EC1C) -- ptr to vertical mouse acceleration -> ptr to horizontal
-require('memory').fill(0x00531155, 0x90, 5, true) -- shift afk fix
-require('memory').fill(sampGetBase() + 0x2D3C45, 0, 2, true) -- fast connect
-require('memory').fill(0x555854, 0x90, 5, true) -- fix interior
--- fix interior
---writeMemory(0x555854, 4, -1869574000, true)
---writeMemory(0x555858, 1, 144, true)
-require('memory').setuint32((0x0052228C + 0x2), 0xB6EC1C) -- ptr to vertical mouse acceleration -> ptr to horizontal
-require('memory').fill(0x00531155, 0x90, 5, true) -- shift afk fix
-require('memory').fill(sampGetBase() + 0x2D3C45, 0, 2, true) -- fast connect
-require('memory').fill(0x555854, 0x90, 5, true) -- fix interior
+mem.setuint32((0x0052228C + 0x2), 0xB6EC1C) -- ptr to vertical mouse acceleration -> ptr to horizontal
+mem.fill(0x00531155, 0x90, 5, true) -- shift afk fix
+mem.fill(sampGetBase() + 0x2D3C45, 0, 2, true) -- fast connect
+mem.fill(0x555854, 0x90, 5, true) -- fix interior
+-- god mode patch
+writeMemory(0x004B35A0, 4, 0x560CEC83, true)
+writeMemory(0x004B35A0 + 4, 2, 0xF18B, true)
 -- fix interior
 --writeMemory(0x555854, 4, -1869574000, true)
 --writeMemory(0x555858, 1, 144, true)
