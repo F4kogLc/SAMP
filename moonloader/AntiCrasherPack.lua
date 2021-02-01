@@ -2,8 +2,6 @@ require 'moonloader'
 local SE = require "samp.events"
 
 function main()
-    if not isSampLoaded() or not isSampfuncsLoaded() then return end
-    while not isSampAvailable() do wait(100)
     wait(-1)
 end
 
