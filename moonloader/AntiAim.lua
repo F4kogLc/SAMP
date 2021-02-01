@@ -5,7 +5,6 @@ local AntiAim = false
 
 function main()
     repeat wait(0) until isSampAvailable()
-    wait(0)
     sampRegisterChatCommand('aa', function()
         AntiAim = not AntiAim
     end)
