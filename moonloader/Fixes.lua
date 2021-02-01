@@ -1,9 +1,5 @@
 local mem = require 'memory'
 
-function main()
-    wait(-1)
-end
-
 function patch() --fast loading
 	if mem.getuint8(0x748C2B) == 0xE8 then
 		mem.fill(0x748C2B, 0x90, 5, true)
