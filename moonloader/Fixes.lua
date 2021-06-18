@@ -35,3 +35,21 @@ writeMemory(0x004B35A0 + 4, 2, 0xF18B, true)
 -- fix interior
 --writeMemory(0x555854, 4, -1869574000, true)
 --writeMemory(0x555858, 1, 144, true)
+
+-- https://www.blast.hk/threads/90944/
+-- patch wet roads
+mem.fill(0x72BB9F, 0x90, 12, true)
+mem.fill(0x72BBAB, 0x90, 20, true)
+mem.fill(0x72BBCB, 0x90, 12, true)
+-- patch wheel interpolation
+mem.fill(0x72B940, 0x90, 5, true)
+mem.fill(0x72B92B, 0x90, 5, true)
+mem.fill(0x72B959, 0x90, 5, true)
+-- disable sand particle
+mem.fill(0x6AA8CF, 0x90, 53, true)
+--patch blade helicopter collision
+mem.fill(0x6C5107, 0x90, 59, true)
+--disable speed limit
+mem.fill(0x544CF0, 0x90, 14, true)
+-- disable rails resistance
+mem.setfloat(0x8D34AC, 0.0, true) 
